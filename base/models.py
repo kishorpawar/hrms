@@ -1180,6 +1180,10 @@ class HorillaMailTemplate(HorillaModel):
     def __str__(self) -> str:
         return f"{self.title}"
 
+    class Meta:
+        verbose_name = "Otet Mail Template"
+        verbose_name_plural = "Otet Mail Templates"
+
 
 class DynamicEmailConfiguration(HorillaModel):
     """

@@ -249,7 +249,7 @@ def get_textfield_paths(model):
                 paths.append(
                     (
                         prefix + field.name,
-                        f"{(prefix.capitalize() + field.name.capitalize()).replace('__',' > ').replace('_id','').replace('_',' ')} (As a mail template)",
+                        f"{(prefix.capitalize() + field.name.replace('horilla', 'otet').capitalize()).replace('__',' > ').replace('_id','').replace('_',' ')} (As a mail template)",
                     )
                 )
             elif isinstance(field, django_models.ForeignKey):

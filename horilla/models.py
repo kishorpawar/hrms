@@ -133,7 +133,7 @@ class HorillaModel(models.Model):
             raise ValidationError(errors)
 
     def get_verbose_name(self):
-        return self._meta.verbose_name
+        return self._meta.verbose_name.replace('horilla', 'otet')
 
     def get_verbose_name_plural(self):
         return self._meta.verbose_name_plural

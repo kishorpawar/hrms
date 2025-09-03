@@ -1058,7 +1058,7 @@ def user_group_table(request):
                     "model_name": model._meta.model_name,
                 }
             )
-        permissions.append({"app": app_name.capitalize(), "app_models": app_models})
+        permissions.append({"app": app_name.replace('horilla', 'otet').capitalize(), "app_models": app_models})
     if request.method == "POST":
         form = UserGroupForm(request.POST)
         if form.is_valid():
@@ -1128,7 +1128,7 @@ def user_group(request):
                 }
             )
         permissions.append(
-            {"app": app_name.capitalize().replace("_", " "), "app_models": app_models}
+            {"app": app_name.replace('horilla', 'otet').capitalize().replace("_", " "), "app_models": app_models}
         )
     groups = Group.objects.all()
     return render(
@@ -1163,7 +1163,7 @@ def user_group_search(request):
                     "model_name": model._meta.model_name,
                 }
             )
-        permissions.append({"app": app_name.capitalize(), "app_models": app_models})
+        permissions.append({"app": (), "app_models": app_models})
     search = ""
     if request.GET.get("search"):
         search = str(request.GET["search"])
@@ -3421,7 +3421,7 @@ def employee_permission_assign(request):
         context["show_assign"] = True
     permissions = [
         {
-            "app": app_name.capitalize().replace("_", " "),
+            "app": app_name.replace('horilla', 'otet').capitalize().replace("_", " "),
             "app_models": [
                 {
                     "verbose_name": model._meta.verbose_name.capitalize(),
@@ -3462,7 +3462,7 @@ def employee_permission_search(request, codename=None, uid=None):
         context["show_assign"] = True
     permissions = [
         {
-            "app": app_name.capitalize().replace("_", " "),
+            "app": app_name.replace('horilla', 'otet').capitalize().replace("_", " "),
             "app_models": [
                 {
                     "verbose_name": model._meta.verbose_name.capitalize(),
@@ -3532,7 +3532,7 @@ def permission_table(request):
                     }
                 )
         permissions.append(
-            {"app": app_name.capitalize().replace("_", " "), "app_models": app_models}
+            {"app": app_name.replace('horilla', 'otet').capitalize().replace("_", " "), "app_models": app_models}
         )
     if request.method == "POST":
         form = AssignPermission(request.POST)
